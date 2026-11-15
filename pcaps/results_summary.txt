@@ -1,0 +1,22 @@
+COAP VS MQTT SECURITY & OVERHEAD COMPARATIVE ANALYSIS
+Linked to RTU Cyber Security Lab Exp 4: Wireshark, tcpdump, TCP/UDP
+===========================================================================
+
++---------------------------------+---------------------------------+--------------------------+----------------------------+--------------------------+
+| Metric / Parameter              | MQTT (Plain TCP)                | MQTT (TLS / TCP)         | CoAP (Plain UDP)           | CoAP (DTLS / UDP)        |
++---------------------------------+---------------------------------+--------------------------+----------------------------+--------------------------+
+| Transport Layer                 | TCP                             | TCP                      | UDP                        | UDP                      |
+| Port Used                       | 1883                            | 8883                     | 5683                       | 5684                     |
+| Security Layer                  | None (Plaintext)                | TLS 1.2 / 1.3            | None (Plaintext)           | DTLS 1.2                 |
+| Total Packets Transferred       | 12                              | 15                       | 2                          | 11                       |
+| Total Network Bytes             | 865 B                           | 2812 B                   | 291 B                      | 2030 B                   |
+| Payload Entropy (0-8)           | 5.42                            | 7.37                     | 5.46                       | 7.47                     |
+| Exposed Sensitive Data          | password, secret, temp, factory | None (Encrypted)         | voltage, token, substation | None (Encrypted)         |
+| Security Confidentiality Status | EXPOSED / VULNERABLE            | ENCRYPTED / CONFIDENTIAL | EXPOSED / VULNERABLE       | ENCRYPTED / CONFIDENTIAL |
++---------------------------------+---------------------------------+--------------------------+----------------------------+--------------------------+
+
+KEY FINDINGS:
+1. Data Exposure: In plaintext MQTT (TCP port 1883) and CoAP (UDP port 5683), credentials, topics, and JSON payloads are transmitted in cleartext.
+2. Transport Overhead: CoAP (UDP) requires only 2 datagrams with 8-byte UDP headers. MQTT (TCP) requires a 3-way handshake and 20-byte TCP headers per segment.
+3. Cryptographic Overhead: Applying TLS/DTLS increases packet count and byte volume significantly due to X.509 certificate exchange and record authentication tags.
+4. Trade-off: CoAP+DTLS maintains lower bandwidth than MQTT+TLS while achieving complete end-to-end confidentiality.

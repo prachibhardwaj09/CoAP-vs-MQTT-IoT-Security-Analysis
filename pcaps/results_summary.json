@@ -1,0 +1,51 @@
+{
+    "mqtt_plain": {
+        "packet_count": 12,
+        "total_bytes": 865,
+        "app_bytes": 217,
+        "transport": "TCP",
+        "entropy": 5.42,
+        "is_encrypted": false,
+        "exposed_keywords": [
+            "password",
+            "secret",
+            "temp",
+            "factory"
+        ],
+        "exposure_status": "EXPOSED / VULNERABLE"
+    },
+    "mqtt_tls": {
+        "packet_count": 15,
+        "total_bytes": 2812,
+        "app_bytes": 2002,
+        "transport": "TCP",
+        "entropy": 7.37,
+        "is_encrypted": true,
+        "exposed_keywords": [],
+        "exposure_status": "ENCRYPTED / CONFIDENTIAL"
+    },
+    "coap_plain": {
+        "packet_count": 2,
+        "total_bytes": 291,
+        "app_bytes": 207,
+        "transport": "UDP",
+        "entropy": 5.46,
+        "is_encrypted": false,
+        "exposed_keywords": [
+            "voltage",
+            "token",
+            "substation"
+        ],
+        "exposure_status": "EXPOSED / VULNERABLE"
+    },
+    "coap_dtls": {
+        "packet_count": 11,
+        "total_bytes": 2030,
+        "app_bytes": 1568,
+        "transport": "UDP",
+        "entropy": 7.47,
+        "is_encrypted": true,
+        "exposed_keywords": [],
+        "exposure_status": "ENCRYPTED / CONFIDENTIAL"
+    }
+}
