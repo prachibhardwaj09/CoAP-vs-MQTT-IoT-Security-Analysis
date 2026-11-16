@@ -62,17 +62,31 @@ The project demonstrates:
 
 ---
 
-## 4. How to Run
+## 4. Installation & Setup
 
-### Step 1: Run the Complete Test
-Run the automated test script to execute all four scenarios, generate the PCAP files, and print the results:
+No third-party libraries or `pip install` required. The project is completely self-contained and runs out-of-the-box using the Python 3 standard library (`socket`, `ssl`, `struct`, `threading`, `json`).
+
+```bash
+# 1. Clone the repository (or extract the downloaded ZIP)
+git clone https://github.com/prachibhardwaj09/CoAP-vs-MQTT-IoT-Security-Analysis.git
+
+# 2. Enter the project directory
+cd CoAP-vs-MQTT-IoT-Security-Analysis
+```
+
+---
+
+## 5. How to Run
+
+### Option 1: One-Click Full Experiment (Recommended)
+Run the automated test runner to execute all four scenarios, generate the PCAP files, and print the comparative analysis table:
 
 ```bash
 python3 run_full_experiment.py
 ```
 
-### Step 2: Use the Interactive Menu (Optional)
-If you want to run one protocol at a time or inspect a specific capture:
+### Option 2: Interactive Menu Dashboard
+If you want to run one protocol scenario at a time, inspect cleartext credentials, or view Wireshark guides:
 
 ```bash
 python3 main.py
@@ -80,7 +94,7 @@ python3 main.py
 
 ---
 
-## 5. Experimental Results
+## 6. Experimental Results
 
 The table below shows the data collected from the four packet captures:
 
@@ -103,7 +117,7 @@ The table below shows the data collected from the four packet captures:
 
 ---
 
-## 6. Wireshark Inspection
+## 7. Wireshark Inspection
 
 To examine the captures:
 1. Open Wireshark and load any file from the `pcaps/` folder.
@@ -127,7 +141,7 @@ tcpdump -r pcaps/03_coap_plaintext_udp.pcap -X
 
 ---
 
-## 7. Viva Questions & Answers
+## 8. Viva Questions & Answers
 
 **Q1: What is the main difference between MQTT and CoAP at the transport layer?**  
 **Ans:** MQTT uses TCP (reliable, connection-oriented with a 3-way handshake), while CoAP uses UDP (connectionless and lightweight datagrams).
